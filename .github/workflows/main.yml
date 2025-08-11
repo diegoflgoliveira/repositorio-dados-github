@@ -33,7 +33,7 @@ jobs:
 
       - name: Endereço dos artefatos
         run: |
-            echo "${{ steps.upload-artifact.outputs.artifact-url }}"
+          echo "Artefatos enviados com sucesso com o nome: ${{ env.nome-artefato }}"
 
   download_artfact:
     runs-on: ubuntu-latest
