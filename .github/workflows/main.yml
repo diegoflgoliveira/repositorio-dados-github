@@ -16,16 +16,16 @@ jobs:
       - name: Geração de arquivos
         run: |
             mkdir artefatos
-            echo "Arquivo de artefato 01 > ./artefatos/primeiro_arquivo.txt"
-            echo "Arquivo de artefato 02 > ./artefatos/segundo_arquivo.txt"
-            echo "Arquivo de artefato 03 > ./artefatos/terceiro_arquivo.txt"
-            echo "Arquivo de artefato 04 > ./artefatos/quarto_arquivo.txt"
+            echo "Arquivo de artefato 01" > ./artefatos/primeiro_arquivo.txt
+            echo "Arquivo de artefato 02" > ./artefatos/segundo_arquivo.txt
+            echo "Arquivo de artefato 03" > ./artefatos/terceiro_arquivo.txt
+            echo "Arquivo de artefato 04" > ./artefatos/quarto_arquivo.txt
 
       - name: Envio dos arquivos
         uses: actions/upload-artifact@v4
         id: upload-artifact 
         with:
-            name: manipulacao-artefatos
+            name: ${{ env.nome-artefato }}
             path: ./artefatos
 
       - name: Listagem de arquivos
@@ -45,7 +45,7 @@ jobs:
       - name: Download dos artefatos
         uses: actions/download-artifact@v4
         with:
-            name: manipulacao-artefatos
+            name: ${{ env.nome-artefato }}
 
       - name: Listagem de arquivos
         run: ls
