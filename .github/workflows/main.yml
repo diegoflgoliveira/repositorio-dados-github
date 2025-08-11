@@ -7,11 +7,11 @@ jobs:
   gerando_output:
     runs-on: ubuntu-latest
     steps:
-        - name: Gerando output com shell
-          id: exemplo-output
-          run: |
-            ACTION_RONDOM=$(( $RONDOM ))
-            echo "action_random=$ACTION_RONDOM" >> $GITHUB_OUTPUT
+      - name: Gerando output com shell
+        id: exemplo-output
+        run: |
+          ACTION_RANDOM=$(( RANDOM ))
+          echo "action_random=$ACTION_RANDOM" >> $GITHUB_OUTPUT
 
-        - name: Resultado do output da action de exemplo
-          run: echo "${{ steps.exemplo-output.outputs.action_random }}"
+      - name: Resultado do output da action de exemplo
+        run: echo "${{ steps.exemplo-output.outputs.action_random }}"
