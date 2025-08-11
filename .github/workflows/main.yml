@@ -11,9 +11,6 @@ jobs:
   upload-artfact:
     runs-on: ubuntu-latest
     steps:
-      - name: Listagem de arquivos antes
-        run: ls
-
       - name: Geração de arquivos
         run: |
           mkdir -p artefatos
@@ -22,17 +19,16 @@ jobs:
           echo "Arquivo de artefato 03" > ./artefatos/terceiro_arquivo.txt
           echo "Arquivo de artefato 04" > ./artefatos/quarto_arquivo.txt
 
-      - name: Verificação antes do upload
-        run: ls ./artefatos
+      - name: Verificação dos arquivos
+        run: ls -lh ./artefatos
 
-      - name: Envio dos arquivos
+      - name: Upload dos arquivos como artefato
         uses: actions/upload-artifact@v4
-        id: upload-artifact
         with:
           name: manipulacao-artefatos
           path: ./artefatos
 
-      - name: Confirmação
+      - name: Confirmação do envio
         run: echo "Artefatos enviados com sucesso."
 
   download-artfact:
@@ -46,4 +42,4 @@ jobs:
           path: ./artefatos
 
       - name: Verificação de arquivos baixados
-        run: ls ./artefatos
+        run: ls -lh ./artefatos
