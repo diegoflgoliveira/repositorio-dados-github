@@ -10,7 +10,7 @@ jobs:
         - name: Gerando output com shell
           id: exemplo-output
           run: |
-            ACTION_RONDOM=$(( $RAMDON ))
+            ACTION_RONDOM=$(( $RONDOM ))
             echo "action_random=$ACTION_RONDOM" >> $GITHUB_OUTPUT
 
         - name: Resultado do output da action de exemplo
