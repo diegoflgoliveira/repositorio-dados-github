@@ -3,6 +3,7 @@ run-name: Exemplo Workflow para output, executado por ${{ github.actor }}
 
 on:
   workflow_dispatch:
+
 jobs:
   gerando_output:
     runs-on: ubuntu-latest
