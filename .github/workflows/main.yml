@@ -8,7 +8,7 @@ env:
     nome-artefato: manipulacao-artefatos
 
 jobs:
-  upload_artfact:
+  upload-artfact:
     runs-on: ubuntu-latest
     steps:
       - name: Listagem de arquivos
@@ -35,9 +35,9 @@ jobs:
         run: |
           echo "Artefatos enviados com sucesso com o nome: ${{ env.nome-artefato }}"
 
-  download_artfact:
+  download-artfact:
     runs-on: ubuntu-latest
-    needs: [upload_artfact]
+    needs: [upload-artfact]
     steps:
       - name: Listagem de arquivos
         run: ls
@@ -46,7 +46,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
             name: ${{ env.nome-artefato }}
-            path: ./artefatos
 
       - name: Listagem de arquivos
         run: ls
