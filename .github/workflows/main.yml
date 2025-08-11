@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v4
         id: upload-artifact 
         with:
-            name: ${{ env.nome-artefato }}
+            name: manipulacao-artefatos
             path: ./artefatos
 
       - name: Listagem de arquivos
@@ -45,7 +45,7 @@ jobs:
       - name: Download dos artefatos
         uses: actions/download-artifact@v4
         with:
-            name: ${{ env.nome-artefato }}
+            name: manipulacao-artefatos
 
       - name: Listagem de arquivos
         run: ls
