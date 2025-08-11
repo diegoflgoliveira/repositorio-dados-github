@@ -16,7 +16,7 @@ on:
       fazer_deploy:
         type: boolean
         required: true
-        description: "Por favor, especificar se é necessário realizar o deploy ou não"
+        description: "Irá fazer o deploy ou não"
       ambiente:
         type: choice
         required: true
